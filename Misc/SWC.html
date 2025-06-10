@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  function firstCallback(callback) {
+    setTimeout(() => {
+        console.log("1️ First callback executed after 1 second");
+        callback();
+    }, 1000);
+}
+
+function secondCallback(callback) {
+    setTimeout(() => {
+        console.log("2️ Second callback executed after 2 seconds");
+        callback();
+    }, 800);
+}
+
+function thirdCallback(callback) {
+    setTimeout(() => {
+        console.log("3️ Third callback executed after 3 seconds");
+       callback();
+    }, 600);
+}
+
+function fourthCallback(callback) {
+    setTimeout(() => {
+        console.log("4️ Fourth callback executed after 4 seconds");
+        callback();
+    }, 400);
+}
+
+// Start the chain
+
+function start(){
+  firstCallback(()=>{
+    secondCallback(()=>{
+      thirdCallback(()=>{
+        fourthCallback(()=>{
+          console.log("All steps completed")
+        })
+      })
+    })
+  })
+}
+start();
+
+
+</script>
+</html>
